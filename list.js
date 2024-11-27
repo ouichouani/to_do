@@ -16,9 +16,9 @@ function add_to_container_tasks() {
     button.addEventListener('click', () => {
         container_tasks.innerHTML += `
                 <div class="task">
-                        <div class="checkbox"></div>
-                        <p class='task_text'>${input_task.value}</p>
-                    </div>`
+                    <div class="checkbox"></div>
+                    <p class='task_text'>${input_task.value}</p>
+                </div>`
         input_task.value = '';
         mark_task()
     })
@@ -35,7 +35,7 @@ function romove_task_from_tasks_list(i) {
     }
     task_text[container_tasks.childElementCount - 1].textContent = ''
     try {
-            task_text[container_tasks.childElementCount - 1].parentElement.remove()
+        task_text[container_tasks.childElementCount - 1].parentElement.remove()
     } catch {
         console.log('catch')
     }
@@ -43,12 +43,21 @@ function romove_task_from_tasks_list(i) {
 }
 
 
+function add_to_container_tasks_done(i) {
+    container_tasks_done.innerHTML += `
+    <div class="task">
+            <div class="checkbox" style ='background-color : blue' checked></div>
+            <p class='task_text_done'>${task_text[i].textContent}</p>
+        </div>`
+
+}
 
 
 function mark_task() {
     for (let i = 0; i < container_tasks.childElementCount; i++) {
 
         checkbox[i].addEventListener('click', function () {
+            add_to_container_tasks_done(i)
             romove_task_from_tasks_list(i)
         })
     }

@@ -11,7 +11,8 @@ h1 {
 }
 
 
-.main_container {
+.main_container,
+.container_tasks_done {
     border-radius: 10px;
     position: relative;
     width: 90%;
@@ -36,17 +37,26 @@ h1 {
             user-select: none;
         }
     }
+    .task_text_done{
+        text-decoration: line-through;
+    }
 }
 
 
-.container_tasks::before {
+.container_tasks::before,
+.container_tasks_done::before {
     content: "list of tasks";
     height: 10px;
     position: absolute;
     top: -20px;
     left: 0;
-    
 }
+.container_tasks_done::before {
+    content: "list of done tasks";
+
+}
+
+
 
 .input_task {
     background-color: thistle;
